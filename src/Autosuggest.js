@@ -46,8 +46,8 @@ export default class Autosuggest extends Component {
         throw new Error("'inputProps' must have 'value'.");
       }
 
-      if (!inputProps.hasOwnProperty('onInput')) {
-        throw new Error('\'inputProps\' must have \'onInput\'.');
+      if (!inputProps.hasOwnProperty('onChange')) {
+        throw new Error('\'inputProps\' must have \'onChange\'.');
       }
     },
     shouldRenderSuggestions: PropTypes.func,
@@ -277,10 +277,10 @@ export default class Autosuggest extends Component {
   }
 
   maybeCallOnChange(event, newValue, method) {
-    const { value, onInput } = this.props.inputProps;
+    const { value, onChange } = this.props.inputProps;
 
     if (newValue !== value) {
-      onInput(event, { newValue, method });
+      onChange(event, { newValue, method });
     }
   }
 
@@ -445,10 +445,11 @@ export default class Autosuggest extends Component {
       : this.props.shouldRenderSuggestions;
     const { value, onFocus, onKeyDown } = inputProps;
     const willRenderSuggestions = this.willRenderSuggestions(this.props);
-    const isOpen =
-      alwaysRenderSuggestions ||
-      (isFocused && !isCollapsed && willRenderSuggestions);
-    const items = isOpen ? suggestions : [];
+
+    const isOpen = alwaysRenderSuggestions || isFocused && !isCollapsed && willRenderSuggestions;
+    const items = (isOpen ? suggestions : []);
+    const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
     const autowhateverInputProps = {
       ...inputProps,
       onFocus: event => {
@@ -483,7 +484,7 @@ export default class Autosuggest extends Component {
           this.onSuggestionsClearRequested();
         }
       },
-      onInput: event => {
+      [isIE11 ? 'onInput' : 'onChange']: event => {
         const { value } = event.target;
         const shouldRender = shouldRenderSuggestions(value);
 

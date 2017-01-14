@@ -1,3 +1,4 @@
+<<<<<<< 3e4edb2526f3279bcf9b2572a32a890a164f2bd9
 [![Build Status](https://img.shields.io/codeship/41810250-aa07-0132-fbf4-4e62e8945e03/master.svg?style=flat-square)](https://codeship.com/projects/67868)
 [![Contributors](https://img.shields.io/github/contributors/moroshko/react-autosuggest.svg?style=flat-square)](https://github.com/moroshko/react-autosuggest/graphs/contributors)
 [![Coverage Status](https://img.shields.io/codecov/c/github/moroshko/react-autosuggest/master.svg?style=flat-square)](https://codecov.io/gh/moroshko/react-autosuggest)
@@ -10,12 +11,17 @@
 # React Autosuggest
 
 ## Overview
+=======
+# React Autosuggest (IE11 compatible)
+[![Build Status](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible.svg?branch=master)](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible)## Overview
 
 This is an Internet Explorer 11 compatible version of moroshko's react-autosuggest.
 This version solves the issue experienced in ie11 in which a user's input is not registered in async
 applications (particularly those featuring a debounce stage).
 
-We apply the fix given by [postlight](https://github.com/postlight/react-autosuggest) in [this thread](https://github.com/moroshko/react-autosuggest/pull/261).
+We apply the fix given by [postlight](https://github.com/postlight/react-autosuggest) in [this thread](https://github.com/moroshko/react-autosuggest/pull/261). We selectively apply this fix only to IE11
+instances of the application. This allows us to continue to use the tests from moroshko, with no
+changes necessary.
 
 ## Demo
 
