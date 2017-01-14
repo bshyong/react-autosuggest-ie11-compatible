@@ -13,7 +13,9 @@
 ## Overview
 =======
 # React Autosuggest (IE11 compatible)
-[![Build Status](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible.svg?branch=master)](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible)## Overview
+[![Build Status](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible.svg?branch=master)](https://travis-ci.org/JacksonKearl/react-autosuggest-ie11-compatible)
+
+## Overview
 
 This is an Internet Explorer 11 compatible version of moroshko's react-autosuggest.
 This version solves the issue experienced in ie11 in which a user's input is not registered in async
