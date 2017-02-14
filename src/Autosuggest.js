@@ -448,7 +448,8 @@ export default class Autosuggest extends Component {
 
     const isOpen = alwaysRenderSuggestions || isFocused && !isCollapsed && willRenderSuggestions;
     const items = (isOpen ? suggestions : []);
-    const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+
+    const isIE11 = typeof window !== 'undefined' && !!window.MSInputMethodContext && !!document.documentMode;
 
     const autowhateverInputProps = {
       ...inputProps,
